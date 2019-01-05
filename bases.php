@@ -3,6 +3,7 @@
 *@author Samir
 *@license http://www.php.net/license/3_01.txt PHP License 3.01
 *@version 1.0
+*
 */
 // LEs bases :
 // Affichage d'un array
@@ -52,5 +53,4 @@ echo "<br>";
 echo "test de : ".$txt." \r reviens à la ligne";
 echo "<br>";
 echo "<br>";
-echo <<<'EOT' Bonjour ca va EOT;
 ?>
