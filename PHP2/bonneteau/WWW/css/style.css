@@ -1,0 +1,147 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21 janv. 2019, 11:52:25
+    Author     : Créa
+*/
+body{
+    background-image: url('https://cdn.allwallpaper.in/wallpapers/1920x1200/14781/ace-cards-karty-pik-poker-1920x1200-wallpaper.jpg');
+}
+.head_index{
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    background-color: lightcyan;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+}
+.container form{
+    display: flex;
+    justify-content: center;
+    background-color: lightgrey;
+    padding: 10px;
+
+}
+.erreur{
+    text-align: center;
+    color: white;
+    background-color: lightslategrey;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+}
+
+/* Jeu php */
+.session {
+    background-color: lightsalmon;
+    width: 28.5%;
+    padding: 5px;
+    
+}
+header {
+    text-align: center;
+    background-color: lightgray;
+}
+
+.head_game{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.rules {
+    width: 59%;
+    margin-right: 2%;
+    border-radius: 1px;
+    background-color: lightyellow;
+    padding: 10px;
+}
+.points {
+    text-align: center;
+    width: 39%;
+    height: 416.867px;
+    background-color: lightgreen;
+}
+.banner {
+    text-align: center;
+    background-color: lightskyblue;
+}
+.game {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.board {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 59%;
+    background-color: lightyellow;
+}
+.cartes {
+
+    width: 25%;
+    height: 250px;
+    background-color: lightsteelblue;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+}
+.cartes:hover {
+
+    -webkit-box-shadow: 11px 22px 5px -66px rgba(0,0,0,0.53);
+    -moz-box-shadow: 11px 22px 5px -66px rgba(0,0,0,0.53);
+    box-shadow: 11px 22px 5px -66px rgba(0,0,0,0.53);
+}
+.carte {
+   text-align: center;
+   height: 150px;
+   border: 1px;
+   border-color: black;
+}.carte p{
+   text-align: center;
+   font-size: 80px;
+}
+.choice {
+    width: 5%;
+    margin: 0 auto;
+}
+.control {
+    text-align: center;
+    width: 39%;
+    height: 250px;
+    background-color: lightgreen;
+}
+.control_table{
+    background-color: lightgrey;
+}
+.mise_table{
+    background-color: lightsalmon;
+}
+footer {
+    color: white;
+    text-align: center;
+    background-color: lightslategrey;
+}
