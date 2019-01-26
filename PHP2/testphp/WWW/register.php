@@ -1,42 +1,85 @@
 <?php
 
 require 'config.php';
+$msg = "";
+$flag = false;
 
 // Test de la présence des enregistrements
-if(!empty($_POST['firstname']) && !empty($_POST['name']) && !empty($_POST['login']) && !empty($_POST['mail']) && !empty($_POST['pwd']) && !empty($_POST['pwd_confirm'])){
+if(isset($_POST['firstname']) && isset($_POST['name']) && isset($_POST['login']) && isset($_POST['mail'])){
     $firstname = $_POST['firstname'];
-    $name = trim($_POST['name']);
+    $lastname = trim($_POST['name']);
     $login = trim($_POST['login']);
     $mail = trim($_POST['mail']);
+}
+
+if (isset($_POST['pwd']) && isset($_POST['pwd_confirm'])){
     $pass = trim($_POST['pwd']);
     $pass_confirm = trim($_POST['pwd_confirm']);
+    if(!empty($pass) && !empty($pass_confirm)){
+        if($pass == $pass_confirm){
+            $pass = md5($pass);
+            $flag = true;
+        } else {
+            $msg = " Vos mots de passes ne correspondent pas";
+            $flag = false;
+        }
+    }
 }
-/*
+
 // Test de la présence du name
-if(!empty($_POST['name'])){
-    $name = $_POST['name'];
+if(!empty($firstname)){
+    $firstname = ucfirst($firstname);
+    $flag = true;
+} else {
+    $flag = false;
+    $msg = " Le champ prénom est requis et le caractère espace n'est pas valide";
 }
 
 // Test de la présence du login
-if(!empty($_POST['login'])){
-    $login = $_POST['login'];
+if(!empty($lastname)){
+    $lastname = ucfirst($lastname);
+    $flag = true;
+} else {
+    $flag = false;
+    $msg = " Le champ nom est requis et le caractère espace n'est pas valide";
 }
 
 // Test de la présence du mail
-if(!empty($_POST['mail'])){
-    $mail = $_POST['mail'];
+if(!empty($login)){
+    $login = ucfirst($login);
+    $flag = true;
+} else {
+    $flag = false;
+    $msg = " Le champ login est requis et le caractère espace n'est pas valide";
 }
 
 // Test de la présence du password
-if(!empty($_POST['pwd'])){
-    $pass = $_POST['pwd'];
+if(!empty($mail)){
+    if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
+        $flag = true;
+    } else {
+        $flag = false;
+        $msg = "Votre adresse mail n'est pas valide";
+    }
+} else {
+    $flag = false;
+    $msg = "Le champ mail est requis et le caractère espace n'est pas valide";
 }
 
-// Test de la présence du password confirm
-if(!empty($_POST['pwd_confirm'])){
-    $pass_confirm = $_POST['pwd_confirm'];
+if($flag){
+    echo "Compte créé !";
+        echo "<ul>
+                  <li>Firstname : $firstname</li>
+                  <li>Lastname : $lastname</li>
+                  <li>Login : $login</li>
+                  <li>Email : $mail</li>
+                  <li>Password : $pass</li>
+              </ul>";
+    register($firstname,$lastname,$login,$pass,$mail);
+} else {
+    echo nl2br($msg);
 }
-*/
+
 
 
 ?>
@@ -49,8 +92,8 @@ if(!empty($_POST['pwd_confirm'])){
     
     <body>
         
-        <header>
-            <?php
+        <!--<header>
+            <?php/*
                 if(!empty($firstname) && !empty($name) && !empty($login) && !empty($mail) && !empty($pass) && !empty($pass_confirm) ){
                     echo "Compte créé !";
                     echo "<ul>
@@ -63,8 +106,8 @@ if(!empty($_POST['pwd_confirm'])){
                 }
                 
                 // Ici on peut faire l'insertion en base de donnée
-            ?>
-        </header>
+            */?>
+        </header>-->
         
         
         <div class="form">

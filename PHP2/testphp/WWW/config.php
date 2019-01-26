@@ -46,21 +46,23 @@ $dbpass = "OURiMOVyETrauYBh";
 }*/
 
 // Récupération de tous les enregistrement dans la db test sur la table utilisateur => Statement : PDO::prepare $ PDO::execute
-/*function getUsers($db){
-    $sql = 'SELECT mail FROM utilisateurs WHERE login = :login';
-    $req = $db->prepare($sql); // $db est l'argument qui récupère l'objet PDO, et permet de faire appel à la fonction prepare()
-    $req->execute(array(':login' => "sam")) or die(print_r($req->errorInfo())); //On execure la requête avec la fonction execute()
+function getUsers($login,$pass){
+    global $connect;
+    $sql = 'SELECT mail FROM utilisateurs WHERE login = :login AND pass = :pass';
+    $req = $connect->prepare($sql); // $db est l'argument qui récupère l'objet PDO, et permet de faire appel à la fonction prepare()
+    $req->execute(array(':login' => $login, 'pass' => $pass)) or die(print_r($req->errorInfo())); //On execure la requête avec la fonction execute()
     while ($user = $req->fetch()){
         echo "<pre>";
         print_r($user);
         echo "</pre>";
     }
-    $req->closeCursor(); // Permet de fermer la connection
+    //$req->closeCursor(); // Permet de fermer la connection
 }
-*/
-// Récupération de tous les enregistrement dans la db test sur la table utilisateur => Statement : PDO::prepare $ PDO::execute
+
+// Fonction pour se connecter à la db
 function signIn($log,$pwd){
     global $connect;
+    
     $sql = 'SELECT * FROM utilisateurs WHERE login = :login AND pass = :pass';
     $req = $connect->prepare($sql); // $db est l'argument qui récupère l'objet PDO, et permet de faire appel à la fonction prepare()
     $req->execute(array(':login' => $log, ':pass' => $pwd)) or die($req->errorInfo()); //On execure la requête avec la fonction execute()
@@ -73,6 +75,16 @@ function signIn($log,$pwd){
         //return false;
     }
     //debug($retour);
+}
+
+// Fonction pour s'enregistrer
+function register($firstname,$lastname,$login,$pass,$mail){
+    global $connect;
+    
+    $sql = 'INSERT INTO utilisateurs(id,prenom,nom,login,pass,mail) VALUES(NULL,:prenom,:nom,:login,:pass,:mail)';
+    $req = $connect->prepare($sql); // $db est l'argument qui récupère l'objet PDO, et permet de faire appel à la fonction prepare()
+    $retour = $req->execute(array(':prenom' => $firstname,':nom' => $lastname,':login' => $login,':pass' => $pass,':mail' => $mail)) or die($req->errorInfo()); //On execure la requête avec la fonction execute()
+    debug($retour);
 }
 
 /*function getUsers($db){
